@@ -11,3 +11,6 @@ action types & action creator
 
 #### v4
 ui component & stateless component
+
+#### v5
+initialize data from api with axios

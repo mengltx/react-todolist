@@ -1,8 +1,9 @@
 import {INPUT_CHANGE, ADD_ITEM, DELETE_ITEM} from '../store/action_types.js';
+import {INIT_DATA} from "../store/action_types";
 
 const defaultState = {
     input: '',
-    list: [11, 22, 33, 44],
+    list: [],
 };
 
 export const reducer = (state=defaultState, action) => {
@@ -17,6 +18,9 @@ export const reducer = (state=defaultState, action) => {
             return newState;
         case DELETE_ITEM:
             newState.list.splice(action.index, 1);
+            return newState;
+        case INIT_DATA:
+            newState.list = action.data;
             return newState;
         default:
             return state

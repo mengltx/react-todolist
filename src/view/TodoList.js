@@ -1,8 +1,11 @@
 import React, {Component, Fragment} from "react";
 import { store } from '../store/index.js';
+import axios from 'axios';
 import {input_change, add_item, delete_item} from '../store/action_creator.js';
 import TodoListUI from "./TodoListUI";
 import TodoListStateless from "./TodoListStateless";
+import {init_data} from "../store/action_creator";
+
 
 
 class TodoList extends Component {
@@ -17,7 +20,7 @@ class TodoList extends Component {
 
     render() {
         return (
-            <TodoListUI
+            <TodoListStateless
                 input={this.state.input}
                 list={this.state.list}
                 inputChange={this.inputChange}
@@ -25,6 +28,14 @@ class TodoList extends Component {
                 deleteItem={(index) => this.deleteItem(index)}
             />
         )
+    }
+
+    componentDidMount() {
+        axios.get('/list.json').then((response) => {
+            store.dispatch(init_data(response.data));
+        }).catch(error => {
+            console.log(error);
+        });
     }
 
     inputChange = (e) => {

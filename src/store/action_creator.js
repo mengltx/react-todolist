@@ -1,5 +1,5 @@
 
-import {INPUT_CHANGE, ADD_ITEM, DELETE_ITEM} from '../store/action_types.js';
+import {INPUT_CHANGE, ADD_ITEM, DELETE_ITEM, INIT_DATA} from '../store/action_types.js';
 
 export const input_change = (value) => ({
     type: INPUT_CHANGE,
@@ -14,5 +14,10 @@ export const add_item = (value) => ({
 export const delete_item = (index) => ({
     type: DELETE_ITEM,
     index
+});
+
+export const init_data = (data) => ({
+    type: INIT_DATA,
+    data
 });
 

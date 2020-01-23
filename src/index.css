@@ -1,0 +1,11 @@
+.mar-all {
+  margin: 15px;
+}
+
+.mar-hor {
+  margin: 0 15px
+}
+
+.mar-ver {
+  margin: 15px 0 !important;
+}

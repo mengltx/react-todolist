@@ -1,7 +1,8 @@
 import React, {Component, Fragment} from "react";
-import {Input, Button, List} from "antd";
 import { store } from '../store/index.js';
 import {input_change, add_item, delete_item} from '../store/action_creator.js';
+// import TodoListUI from "./TodoListUI";
+import TodoListStateless from "./TodoListStateless";
 
 
 class TodoList extends Component {
@@ -16,26 +17,13 @@ class TodoList extends Component {
 
     render() {
         return (
-            <Fragment>
-                <Input
-                    style={{width: '400px'}}
-                    value={this.state.input}
-                    onChange={this.inputChange}
-                />
-                <Button
-                    className='mar-hor'
-                    type='primary'
-                    onClick={this.addItem}>Add</Button>
-                <List
-                    className='mar-ver'
-                    size="small"
-                    bordered
-                    dataSource={this.state.list}
-                    renderItem={
-                        (item, index) => <List.Item onClick={() => {this.deleteItem(index)}}>{index}.{item}</List.Item>
-                    }
-                />
-            </Fragment>
+            <TodoListStateless
+                input={this.state.input}
+                list={this.state.list}
+                inputChange={this.inputChange}
+                addItem={this.addItem}
+                deleteItem={(index) => this.deleteItem(index)}
+            />
         )
     }
 

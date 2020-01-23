@@ -13,6 +13,7 @@ export const reducer = (state=defaultState, action) => {
             return newState;
         case ADD_ITEM:
             newState.list.push(action.value);
+            newState.input = '';
             return newState;
         case DELETE_ITEM:
             newState.list.splice(action.index, 1);

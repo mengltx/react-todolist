@@ -1,15 +1,16 @@
 import React, {Component, Fragment} from "react";
 import {Input, Button, List} from "antd";
+import { store } from '../store/index.js';
 
 
 class TodoList extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            input: '',
-            list: ['aa', 'bb', 'cc']
-        }
+        this.state = store.getState();
+        store.subscribe(() => {
+            this.setState(store.getState());
+        });
     }
 
     render() {
@@ -38,26 +39,27 @@ class TodoList extends Component {
     }
 
     inputChange = (e) => {
-        this.setState({
-            input: e.target.value
-        })
+        const action = {
+            type: 'INPUT_CHANGE',
+            value: e.target.value
+        };
+        store.dispatch(action);
     };
 
     addItem = () => {
-        const list = [...this.state.list];
-        list.push(this.state.input);
-        this.setState({
-            list: list,
-            input: ''
-        })
+        const action = {
+            type: 'ADD_ITEM',
+            value: this.state.input
+        };
+        store.dispatch(action);
     };
 
     deleteItem(index) {
-        const list = [...this.state.list];
-        list.splice(index, 1);
-        this.setState({
-            list
-        })
+        const action = {
+            type: 'DELETE_ITEM',
+            index
+        };
+        store.dispatch(action);
     }
 }
 

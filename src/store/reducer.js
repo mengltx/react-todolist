@@ -1,3 +1,5 @@
+import {INPUT_CHANGE, ADD_ITEM, DELETE_ITEM} from '../store/action_types.js';
+
 const defaultState = {
     input: '',
     list: [11, 22, 33, 44],
@@ -6,16 +8,13 @@ const defaultState = {
 export const reducer = (state=defaultState, action) => {
     const newState = JSON.parse(JSON.stringify(state));
     switch (action.type) {
-        case 'INPUT_CHANGE':
-            console.log('INPUT_CHANGE', action.value);
+        case INPUT_CHANGE:
             newState.input = action.value;
             return newState;
-        case 'ADD_ITEM':
-            console.log('ADD_ITEM', action.value);
+        case ADD_ITEM:
             newState.list.push(action.value);
             return newState;
-        case 'DELETE_ITEM':
-            console.log('DELETE_ITEM', action.index);
+        case DELETE_ITEM:
             newState.list.splice(action.index, 1);
             return newState;
         default:

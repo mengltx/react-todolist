@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from "react";
 import {Input, Button, List} from "antd";
 import { store } from '../store/index.js';
+import {input_change, add_item, delete_item} from '../store/action_creator.js';
 
 
 class TodoList extends Component {
@@ -39,27 +40,15 @@ class TodoList extends Component {
     }
 
     inputChange = (e) => {
-        const action = {
-            type: 'INPUT_CHANGE',
-            value: e.target.value
-        };
-        store.dispatch(action);
+        store.dispatch(input_change(e.target.value));
     };
 
     addItem = () => {
-        const action = {
-            type: 'ADD_ITEM',
-            value: this.state.input
-        };
-        store.dispatch(action);
+        store.dispatch(add_item(this.state.input));
     };
 
     deleteItem(index) {
-        const action = {
-            type: 'DELETE_ITEM',
-            index
-        };
-        store.dispatch(action);
+        store.dispatch(delete_item(index));
     }
 }
 

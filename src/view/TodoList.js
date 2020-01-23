@@ -1,7 +1,7 @@
 import React, {Component, Fragment} from "react";
 import { store } from '../store/index.js';
 import {input_change, add_item, delete_item} from '../store/action_creator.js';
-// import TodoListUI from "./TodoListUI";
+import TodoListUI from "./TodoListUI";
 import TodoListStateless from "./TodoListStateless";
 
 
@@ -17,7 +17,7 @@ class TodoList extends Component {
 
     render() {
         return (
-            <TodoListStateless
+            <TodoListUI
                 input={this.state.input}
                 list={this.state.list}
                 inputChange={this.inputChange}

@@ -21,7 +21,7 @@ export const init_data = (data) => ({
     data
 });
 
-export const get_init_data = (data) => ({
+export const get_init_data = () => ({
     type: GET_INIT_DATA
 });
 

@@ -1,10 +1,7 @@
 import React, {Component} from "react";
-import { store } from '../store/index.js';
-import {input_change, add_item, delete_item} from '../store/action_creator.js';
+import store from '../store/index.js';
+import {input_change, add_item, delete_item, get_init_data} from '../store/action_creator.js';
 import TodoListStateless from "./TodoListStateless";
-import {get_init_data} from "../store/action_creator";
-
-
 
 class TodoList extends Component {
 
@@ -29,7 +26,7 @@ class TodoList extends Component {
     }
 
     componentDidMount() {
-        store.dispatch(get_init_data());
+        store.dispatch(get_init_data())
     }
 
     inputChange = (e) => {

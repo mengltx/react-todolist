@@ -1,5 +1,4 @@
-import {INPUT_CHANGE, ADD_ITEM, DELETE_ITEM} from '../store/action_types.js';
-import {INIT_DATA} from "../store/action_types";
+import {INPUT_CHANGE, ADD_ITEM, DELETE_ITEM, INIT_DATA} from '../store/action_types.js';
 
 const defaultState = {
     input: '',

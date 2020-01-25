@@ -18,3 +18,5 @@ initialize data from api with axios
 #### v6
 redux-devtools-extension & redux-thunk
 
+#### v7
+redux-saga

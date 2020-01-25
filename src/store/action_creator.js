@@ -1,5 +1,6 @@
 
 import {INPUT_CHANGE, ADD_ITEM, DELETE_ITEM, INIT_DATA} from '../store/action_types.js';
+import axios from "axios";
 
 export const input_change = (value) => ({
     type: INPUT_CHANGE,
@@ -20,4 +21,14 @@ export const init_data = (data) => ({
     type: INIT_DATA,
     data
 });
+
+export const get_init_data = () => {
+    return (dispatch) => {
+        axios.get('/list.json').then((response) => {
+            dispatch(init_data(response.data));
+        }).catch(error => {
+            console.log(error);
+        })
+    }
+};
 

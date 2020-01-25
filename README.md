@@ -20,3 +20,6 @@ redux-devtools-extension & redux-thunk
 
 #### v7
 redux-saga
+
+#### v8
+react-redux

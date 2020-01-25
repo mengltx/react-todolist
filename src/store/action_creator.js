@@ -6,9 +6,8 @@ export const input_change = (value) => ({
     value
 });
 
-export const add_item = (value) => ({
-    type: ADD_ITEM,
-    value
+export const add_item = () => ({
+    type: ADD_ITEM
 });
 
 export const delete_item = (index) => ({

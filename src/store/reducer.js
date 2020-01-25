@@ -2,7 +2,7 @@ import {INPUT_CHANGE, ADD_ITEM, DELETE_ITEM, INIT_DATA} from '../store/action_ty
 
 const defaultState = {
     input: '',
-    list: [],
+    list: []
 };
 
 export const reducer = (state=defaultState, action) => {
@@ -12,7 +12,7 @@ export const reducer = (state=defaultState, action) => {
             newState.input = action.value;
             return newState;
         case ADD_ITEM:
-            newState.list.push(action.value);
+            newState.list.push(newState.input);
             newState.input = '';
             return newState;
         case DELETE_ITEM:

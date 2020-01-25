@@ -14,3 +14,7 @@ ui component & stateless component
 
 #### v5
 initialize data from api with axios
+
+#### v6
+redux-devtools-extension & redux-thunk
+
